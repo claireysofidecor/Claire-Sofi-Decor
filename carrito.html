@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre nosotras | Claire & Sofi Decor</title>
+  <title>Carrito | Claire & Sofi Decor</title>
   <link rel="icon" href="assets/img/favicon_io/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
@@ -63,7 +63,7 @@
         </div>
 
         <a href="galeria.html" class="navbar__link">Galería</a>
-        <a href="sobre-nosotras.html" class="navbar__link is-active">Sobre nosotras</a>
+        <a href="sobre-nosotras.html" class="navbar__link">Sobre nosotras</a>
         <a href="contacto.html" class="navbar__link">Contacto</a>
       </nav>
 
@@ -79,7 +79,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
           <span class="navbar__icon-badge" id="favoritesBadge">0</span>
         </a>
-        <a href="carrito.html" class="navbar__icon-btn" aria-label="Carrito" title="Carrito">
+        <a href="carrito.html" class="navbar__icon-btn is-active" aria-label="Carrito" title="Carrito">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
           <span class="navbar__icon-badge" id="cartBadge">0</span>
         </a>
@@ -93,128 +93,28 @@
 
   <main>
 
-    <!-- ===== CABECERA: PRESENTACIÓN ===== -->
-    <section class="about-hero">
-      <div class="about-hero__inner">
-        <div class="about-hero__content">
-          <p class="about-hero__eyebrow">Nuestra historia</p>
-          <h1 class="about-hero__title">Dos hermanas, una misma pasión por crear</h1>
-          <p class="about-hero__text">Somos Claire y Sofi y, desde siempre, nos ha encantado convertir materiales sencillos en objetos con alma. Lo que empezó como manualidades para casa se ha convertido en Claire & Sofi Decor: piezas hechas a mano, una a una, con mucho cariño y todo el tiempo que necesitan.</p>
-          <a href="tienda.html" class="btn-accent">Ver la tienda</a>
-        </div>
-        <div class="about-hero__image" style="background-image: linear-gradient(135deg, #9FBFB5, #55606B);">
-          <span class="about-hero__image-tag">Sustituir por foto real</span>
-        </div>
+    <!-- ===== CABECERA ===== -->
+    <section class="shop-hero">
+      <div class="shop-hero__inner">
+        <h1 class="shop-hero__title">Tu carrito</h1>
       </div>
     </section>
 
-    <!-- ===== NUESTRA HISTORIA (bloques alternos) ===== -->
-    <section class="about-story">
-      <div class="about-story__inner">
+    <!-- ===== PRODUCTOS DEL CARRITO ===== -->
+    <section class="cart-section">
+      <div class="cart-section__inner">
 
-        <div class="about-story__block">
-          <div class="about-story__image" style="background-image: linear-gradient(135deg, #E4C878, #55606B);">
-            <span class="about-story__image-tag">Sustituir por foto real</span>
-          </div>
-          <div class="about-story__content">
-            <h2 class="about-story__title">Cómo empezamos</h2>
-            <p class="about-story__text">Todo empezó en la mesa de la cocina, entre pinturas, hilos y muchas tardes de prueba y error. Nos dimos cuenta de que nos encantaba crear cosas únicas para decorar nuestra propia casa, y poco a poco empezamos a hacerlas también para familia y amigas. Ver la ilusión con la que recibían cada pieza fue lo que nos animó a dar el salto y compartir lo que hacemos con más gente.</p>
-          </div>
+        <div class="cart-list" id="cartList"></div>
+
+        <p class="shop__empty" id="cartEmpty" hidden>Tu carrito está vacío todavía. Explora la tienda y añade los productos que más te gusten.</p>
+
+        <div class="cart-summary" id="cartSummary" hidden>
+          <p class="cart-summary__total"><span>Total</span><span id="cartTotal">0,00&nbsp;€</span></p>
+          <button class="cart-summary__pay-btn" id="payButton" type="button">Pagar</button>
         </div>
 
-        <div class="about-story__block about-story__block--reverse">
-          <div class="about-story__image" style="background-image: linear-gradient(135deg, #434B54, #9FBFB5);">
-            <span class="about-story__image-tag">Sustituir por foto real</span>
-          </div>
-          <div class="about-story__content">
-            <h2 class="about-story__title">Nuestro proceso</h2>
-            <p class="about-story__text">Cada producto pasa por nuestras manos de principio a fin: elegimos los materiales, cuidamos cada detalle y le dedicamos el tiempo que haga falta hasta que queda como nos gustaría recibirlo a nosotras mismas. No trabajamos en serie, así que cada pieza es un poco distinta a la anterior — y para nosotras esa es justo la parte más bonita de lo hecho a mano.</p>
-          </div>
-        </div>
+        <a href="tienda.html" class="shop__explore-btn">Explorar más</a>
 
-      </div>
-    </section>
-
-    <!-- ===== LO QUE NOS HACE ESPECIALES ===== -->
-    <section class="about-values">
-      <div class="about-values__inner">
-        <h2 class="about-values__title">Lo que nos hace especiales</h2>
-
-        <div class="about-values__grid">
-
-          <div class="value-card">
-            <div class="value-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
-            </div>
-            <h3 class="value-card__title">Hecho a mano</h3>
-            <p class="value-card__text">Cada pieza se crea de forma artesanal, sin máquinas ni producción en serie.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2Z"></path></svg>
-            </div>
-            <h3 class="value-card__title">Piezas únicas</h3>
-            <p class="value-card__text">Al hacerse una a una, ninguna sale exactamente igual a la anterior.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-            </div>
-            <h3 class="value-card__title">Con mucho cariño</h3>
-            <p class="value-card__text">Ponemos el mismo cuidado que pondríamos en un regalo para alguien querido.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
-            </div>
-            <h3 class="value-card__title">A tu medida</h3>
-            <p class="value-card__text">Muchos productos se pueden personalizar para hacerlos aún más especiales.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== LAS DOS HERMANAS ===== -->
-    <section class="about-team">
-      <div class="about-team__inner">
-        <h2 class="about-team__title">Las manos detrás de Claire & Sofi Decor</h2>
-        <p class="about-team__subtitle">Dos hermanas, dos estilos, un mismo taller.</p>
-
-        <div class="about-team__grid">
-
-          <article class="team-card">
-            <div class="team-card__image" style="background-image: linear-gradient(135deg, #9FBFB5, #434B54);">
-              <span class="team-card__image-tag">Sustituir por foto real</span>
-            </div>
-            <h3 class="team-card__name">Claire</h3>
-            <p class="team-card__role">La hermana mayor</p>
-            <p class="team-card__bio">Aporta la visión creativa y el gusto por los detalles. Le encanta combinar colores y probar técnicas nuevas en cada pieza.</p>
-          </article>
-
-          <article class="team-card">
-            <div class="team-card__image" style="background-image: linear-gradient(135deg, #E4C878, #5F8A80);">
-              <span class="team-card__image-tag">Sustituir por foto real</span>
-            </div>
-            <h3 class="team-card__name">Sofi</h3>
-            <p class="team-card__role">La hermana pequeña</p>
-            <p class="team-card__bio">Pone la paciencia y un ojo increíble para el acabado perfecto. Es quien más disfruta con los encargos personalizados.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA FINAL ===== -->
-    <section class="about-cta">
-      <h2 class="about-cta__title">¿Lista para encontrar tu próxima pieza favorita?</h2>
-      <p class="about-cta__text">Descubre todo lo que hemos creado hasta ahora, o explora la tienda para encontrar algo especial.</p>
-      <div class="about-cta__actions">
-        <a href="tienda.html" class="btn-accent">Ver la tienda</a>
-        <a href="galeria.html" class="btn-outline">Ver la galería</a>
       </div>
     </section>
 
@@ -275,6 +175,21 @@
       <p>© 2026 Claire & Sofi Decor. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <!-- ===== MODAL DE PAGO ===== -->
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal__inner">
+      <button class="checkout-modal__close" id="checkoutModalClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <h2 class="checkout-modal__title">Antes de pagar…</h2>
+      <p class="checkout-modal__text">Somos dos chicas que acabamos de abrir nuestro pequeño negocio familiar. ¡No tenemos métodos de pago oficiales! Nuestro método funciona contigo enviándonos un correo en el que se listarán los productos que tengas en tu carrito, nos comentas que estás interesado/a, y nosotras te facilitamos un número al que puedes realizar un Bizum como pago. Tras recibir éste, comenzaremos a preparar tu pedido. ¡Te iremos actualizando con cada avance!</p>
+      <form id="checkoutForm">
+        <button type="submit" class="btn-accent checkout-modal__submit">Enviar</button>
+      </form>
+      <p class="checkout-modal__note">Al enviar, se abrirá tu programa de correo con el mensaje y los productos de tu carrito ya redactados para que puedas revisarlo y mandarlo.</p>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

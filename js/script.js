@@ -454,12 +454,19 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">${escapeHtml(product.name)}</h3>
-            <p class="product-card__price">${escapeHtml(product.price)}</p>
+            <div class="product-card__footer">
+              <p class="product-card__price">${escapeHtml(product.price)}</p>
+              <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+              </button>
+            </div>
           </div>
         </article>
       `).join('');
 
       if (favoritesEmpty) favoritesEmpty.hidden = favorites.length > 0;
+
+      wireAddToCartButtons(favoritesGrid);
 
       favoritesGrid.querySelectorAll('.product-card__fav').forEach(favBtn => {
         favBtn.addEventListener('click', () => {
@@ -477,6 +484,209 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderFavorites();
+  }
+
+  /* ---------- Carrito ----------
+     Igual que Favoritos, se guarda en localStorage del navegador. Cada
+     producto añadido guarda id/name/price/image y una cantidad (qty) que
+     aumenta si se vuelve a añadir el mismo producto desde una tarjeta. */
+  const CART_KEY = 'csyd_cart';
+
+  function getCart() {
+    try {
+      const raw = localStorage.getItem(CART_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    } catch (e) {
+      /* almacenamiento no disponible (modo privado, etc.) — no bloquea la interacción */
+    }
+  }
+
+  function addToCart(product) {
+    const cart = getCart();
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ ...product, qty: 1 });
+    }
+
+    saveCart(cart);
+    updateCartBadge();
+  }
+
+  function updateCartBadge() {
+    const count = String(getCart().reduce((sum, item) => sum + item.qty, 0));
+    document.querySelectorAll('#cartBadge').forEach(badge => {
+      badge.textContent = count;
+    });
+  }
+
+  // Convierte un precio en texto (p.ej. "24,00 €") en el número 24 para
+  // poder sumar totales; formatPrice hace el camino contrario.
+  function parsePrice(price) {
+    const clean = String(price).replace(/[^\d,.-]/g, '').replace(',', '.');
+    return parseFloat(clean) || 0;
+  }
+
+  function formatPrice(value) {
+    return `${value.toFixed(2).replace('.', ',')} €`;
+  }
+
+  // Botones "Añadir al carrito": tanto los de las tarjetas estáticas del
+  // catálogo como los de tarjetas pintadas dinámicamente (Favoritos) usan
+  // esta misma función para engancharse.
+  function wireAddToCartButtons(scope) {
+    scope.querySelectorAll('.product-card[data-id] .product-card__add-cart').forEach(addBtn => {
+      addBtn.addEventListener('click', () => {
+        const card = addBtn.closest('.product-card');
+        addToCart({
+          id: card.dataset.id,
+          name: card.dataset.name,
+          price: card.dataset.price,
+          image: card.dataset.image,
+        });
+
+        const originalIcon = addBtn.innerHTML;
+        addBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        addBtn.classList.add('is-added');
+        setTimeout(() => {
+          addBtn.innerHTML = originalIcon;
+          addBtn.classList.remove('is-added');
+        }, 1200);
+      });
+    });
+  }
+
+  wireAddToCartButtons(document);
+  updateCartBadge();
+
+  // Página "Carrito": pinta los productos guardados con su cantidad,
+  // permite cambiarla o quitar productos, y calcula el total.
+  const cartList = document.getElementById('cartList');
+  const cartEmpty = document.getElementById('cartEmpty');
+  const cartSummary = document.getElementById('cartSummary');
+  const cartTotal = document.getElementById('cartTotal');
+
+  if (cartList) {
+    function renderCart() {
+      const cart = getCart();
+
+      cartList.innerHTML = cart.map(item => `
+        <article class="cart-item" data-id="${escapeHtml(item.id)}">
+          <div class="cart-item__image" style="background-image: ${escapeHtml(item.image)};"></div>
+          <div class="cart-item__body">
+            <h3 class="cart-item__name">${escapeHtml(item.name)}</h3>
+            <p class="cart-item__price">${escapeHtml(item.price)}</p>
+          </div>
+          <div class="cart-item__qty">
+            <button class="cart-item__qty-btn" data-action="decrease" aria-label="Quitar una unidad">−</button>
+            <span class="cart-item__qty-value">${item.qty}</span>
+            <button class="cart-item__qty-btn" data-action="increase" aria-label="Añadir una unidad">+</button>
+          </div>
+          <p class="cart-item__subtotal">${formatPrice(parsePrice(item.price) * item.qty)}</p>
+          <button class="cart-item__remove" aria-label="Quitar del carrito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </article>
+      `).join('');
+
+      const isEmpty = cart.length === 0;
+      if (cartEmpty) cartEmpty.hidden = !isEmpty;
+      if (cartSummary) cartSummary.hidden = isEmpty;
+
+      if (cartTotal) {
+        const total = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0);
+        cartTotal.textContent = formatPrice(total);
+      }
+
+      cartList.querySelectorAll('.cart-item__qty-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.closest('.cart-item').dataset.id;
+          const cart = getCart();
+          const item = cart.find(p => p.id === id);
+          if (!item) return;
+
+          if (btn.dataset.action === 'increase') {
+            item.qty += 1;
+          } else {
+            item.qty -= 1;
+          }
+
+          const updated = item.qty > 0 ? cart : cart.filter(p => p.id !== id);
+          saveCart(updated);
+          renderCart();
+          updateCartBadge();
+        });
+      });
+
+      cartList.querySelectorAll('.cart-item__remove').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.closest('.cart-item').dataset.id;
+          saveCart(getCart().filter(p => p.id !== id));
+          renderCart();
+          updateCartBadge();
+        });
+      });
+    }
+
+    renderCart();
+  }
+
+  // Modal de pago: se abre al pulsar "Pagar" y se cierra con la X o
+  // tocando fuera de ella, igual que la modal de la galería.
+  const checkoutModal = document.getElementById('checkoutModal');
+  const payButton = document.getElementById('payButton');
+
+  if (checkoutModal && payButton) {
+    const checkoutClose = document.getElementById('checkoutModalClose');
+    const checkoutForm = document.getElementById('checkoutForm');
+
+    function openCheckoutModal() {
+      checkoutModal.classList.add('is-open');
+      document.body.classList.add('no-scroll');
+      checkoutClose.focus();
+    }
+
+    function closeCheckoutModal() {
+      checkoutModal.classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    payButton.addEventListener('click', openCheckoutModal);
+    checkoutClose.addEventListener('click', closeCheckoutModal);
+
+    checkoutModal.addEventListener('click', (e) => {
+      if (e.target === checkoutModal) closeCheckoutModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!checkoutModal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeCheckoutModal();
+    });
+
+    if (checkoutForm) {
+      checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const cart = getCart();
+        const lines = cart.map(item => `- ${item.name} (x${item.qty}) — ${formatPrice(parsePrice(item.price) * item.qty)}`);
+        const total = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0);
+
+        const subject = encodeURIComponent('Solicitud de pedido — Claire & Sofi Decor');
+        const body = encodeURIComponent(`¡Hola! Estoy interesado/a en estos productos de vuestro carrito:\n\n${lines.join('\n')}\n\nTotal: ${formatPrice(total)}\n\nEspero vuestra respuesta con el número al que pueda hacer el Bizum. ¡Gracias!`);
+
+        window.location.href = `mailto:claireysofia.decor@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
   }
 
   /* ---------- Página "Galería" ----------
@@ -576,8 +786,5 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = `mailto:claireysofia.decor@gmail.com?subject=${subject}&body=${body}`;
     });
   }
-
-  /* ---------- Iconos de la nav (buscar / carrito) ----------
-     De momento son solo visuales; su funcionalidad se añadirá más adelante. */
 
 });
