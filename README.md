@@ -1,4 +1,6 @@
-# Claire & Sofi Decor — sitio web
+# Claire & Sofi Decor
+
+Puedes encontrar la web live [aquí](https://claireysofidecor.github.io/Claire-Sofi-Decor/).
 
 Estructura del proyecto:
 
