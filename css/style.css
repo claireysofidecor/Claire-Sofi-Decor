@@ -1235,9 +1235,9 @@ ul {
   height: 48px;
 }
 
-.gallery-modal__arrow svg {
-  width: 30px;
-  height: 30px;
+.gallery-modal__arrow-icon {
+  width: 32px;
+  height: auto;
 }
 
 .gallery-modal__arrow.is-hidden {
@@ -2470,5 +2470,60 @@ body.no-scroll {
 
   .cart-summary {
     justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   PÁGINA "INFORMACIÓN"
+   ========================================================= */
+
+.info-content {
+  padding: 80px 24px 96px;
+  background-color: var(--color-bg);
+}
+
+.info-content__inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-section {
+  background-color: var(--color-surface);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 2px 14px rgba(46, 51, 56, 0.06);
+}
+
+.info-section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.info-section__text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-soft);
+}
+
+.info-section__text + .info-section__text {
+  margin-top: 14px;
+}
+
+.info-section__text a {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .info-section {
+    padding: 28px 22px;
   }
 }
