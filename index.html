@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claire & Sofi Decor | Manualidades artesanales</title>
+  <link rel="icon" href="assets/img/favicon_io/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAV BAR ===== -->
+  <header class="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo (izquierda) -->
+      <a href="#" class="navbar__logo">
+        <img src="assets/img/Logo_Semicondensed_Claro1.png" alt="Claire & Sofi Decor" class="navbar__logo-img">
+      </a>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navegación (centro) -->
+      <nav class="navbar__nav" id="navMenu">
+        <a href="#inicio" class="navbar__link is-active">Inicio</a>
+
+        <!-- "Tienda" abre un desplegable con categorías al pasar el ratón -->
+        <div class="navbar__item navbar__item--dropdown" id="tiendaNavItem">
+          <a href="tienda.html" class="navbar__link">Tienda</a>
+          <div class="tienda-dropdown" id="tiendaDropdown">
+            <div class="tienda-dropdown__inner">
+              <a href="tienda.html" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--todo"></span>
+                <span class="tienda-dropdown__label">Ver todo</span>
+              </a>
+              <a href="tienda.html?cat=servir" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--servir"></span>
+                <span class="tienda-dropdown__label">Para servir</span>
+              </a>
+              <a href="tienda.html?cat=decorar" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--decorar"></span>
+                <span class="tienda-dropdown__label">Para decorar</span>
+              </a>
+              <a href="tienda.html?cat=bolsas" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--bolsas"></span>
+                <span class="tienda-dropdown__label">Bolsas</span>
+              </a>
+              <a href="tienda.html?cat=personalizado" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--personalizado"></span>
+                <span class="tienda-dropdown__label">Personalizado</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="galeria.html" class="navbar__link">Galería</a>
+        <a href="sobre-nosotras.html" class="navbar__link">Sobre nosotras</a>
+        <a href="contacto.html" class="navbar__link">Contacto</a>
+      </nav>
+
+      <!-- Iconos (derecha) -->
+      <div class="navbar__icons">
+        <div class="navbar__search" id="navSearch">
+          <input type="text" class="navbar__search-input" id="searchInput" placeholder="Buscar productos…" autocomplete="off">
+          <button class="navbar__icon-btn navbar__search-btn" aria-label="Buscar" title="Buscar" id="searchToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+        <a href="favoritos.html" class="navbar__icon-btn" aria-label="Favoritos" title="Favoritos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+          <span class="navbar__icon-badge" id="favoritesBadge">0</span>
+        </a>
+        <button class="navbar__icon-btn" aria-label="Carrito" title="Carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
+          <span class="navbar__icon-badge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Fondo oscurecido mientras el desplegable de "Tienda" está abierto -->
+  <div class="tienda-overlay" id="tiendaOverlay"></div>
+
+  <!-- ===== CARRUSEL ===== -->
+  <section class="carousel" id="inicio" aria-label="Destacados">
+    <div class="carousel__track">
+
+      <div class="carousel__slide is-active" style="background-image: linear-gradient(135deg, #434B54, #9FBFB5);">
+        <div class="carousel__content">
+          <p class="carousel__eyebrow">Colección de otoño</p>
+          <h2 class="carousel__title">Piezas únicas, hechas con cariño</h2>
+          <a href="tienda.html" class="carousel__cta">Ver la tienda</a>
+        </div>
+        <span class="carousel__placeholder-tag">Sustituir por foto real 1</span>
+      </div>
+
+      <div class="carousel__slide" style="background-image: linear-gradient(135deg, #55606B, #E4C878);">
+        <div class="carousel__content">
+          <p class="carousel__eyebrow">Nuevo</p>
+          <h2 class="carousel__title">Cada detalle, hecho a mano</h2>
+          <a href="tienda.html" class="carousel__cta">Descubrir más</a>
+        </div>
+        <span class="carousel__placeholder-tag">Sustituir por foto real 2</span>
+      </div>
+
+      <div class="carousel__slide" style="background-image: linear-gradient(135deg, #5F8A80, #2E3338);">
+        <div class="carousel__content">
+          <p class="carousel__eyebrow">Personalizados</p>
+          <h2 class="carousel__title">Regalos con tu toque especial</h2>
+          <a href="#contacto" class="carousel__cta">Pide el tuyo</a>
+        </div>
+        <span class="carousel__placeholder-tag">Sustituir por foto real 3</span>
+      </div>
+
+    </div>
+
+    <!-- Flechas -->
+    <button class="carousel__arrow carousel__arrow--prev" id="carouselPrev" aria-label="Anterior">
+      <img src="assets/icons/icon_flecha_white_izda1.png" alt="" class="carousel__arrow-icon">
+    </button>
+    <button class="carousel__arrow carousel__arrow--next" id="carouselNext" aria-label="Siguiente">
+      <img src="assets/icons/icon_flecha_white_dcha1.png" alt="" class="carousel__arrow-icon">
+    </button>
+
+    <!-- Puntos -->
+    <div class="carousel__dots" id="carouselDots">
+      <button class="carousel__dot is-active" data-slide="0" aria-label="Ir a la diapositiva 1"></button>
+      <button class="carousel__dot" data-slide="1" aria-label="Ir a la diapositiva 2"></button>
+      <button class="carousel__dot" data-slide="2" aria-label="Ir a la diapositiva 3"></button>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ===== PRODUCTOS DESTACADOS ===== -->
+    <section class="featured" id="productos-destacados">
+      <div class="featured__inner">
+        <h2 class="featured__title">Productos destacados</h2>
+
+        <div class="featured__grid">
+
+          <article class="product-card" data-id="jarron-ceramica" data-name="Jarrón de cerámica pintado a mano" data-price="18,00 €" data-image="linear-gradient(135deg, #9FBFB5, #55606B)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #9FBFB5, #55606B);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Jarrón de cerámica pintado a mano</h3>
+              <p class="product-card__price">18,00&nbsp;€</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-id="cuadro-bordado" data-name="Cuadro bordado a mano" data-price="22,50 €" data-image="linear-gradient(135deg, #E4C878, #55606B)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #E4C878, #55606B);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Cuadro bordado a mano</h3>
+              <p class="product-card__price">22,50&nbsp;€</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-id="vela-decorativa" data-name="Vela decorativa artesanal" data-price="9,50 €" data-image="linear-gradient(135deg, #434B54, #9FBFB5)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #434B54, #9FBFB5);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Vela decorativa artesanal</h3>
+              <p class="product-card__price">9,50&nbsp;€</p>
+            </div>
+          </article>
+
+          <article class="product-card" data-id="cesta-macrame" data-name="Cesta de macramé" data-price="15,00 €" data-image="linear-gradient(135deg, #5F8A80, #E4C878)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #5F8A80, #E4C878);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Cesta de macramé</h3>
+              <p class="product-card__price">15,00&nbsp;€</p>
+            </div>
+          </article>
+
+        </div>
+
+        <a href="tienda.html" class="featured__more">Ver todos los productos</a>
+      </div>
+    </section>
+
+    <!-- ===== RESEÑAS DE CLIENTES ===== -->
+    <section class="testimonials" aria-label="Reseñas de clientes">
+      <div class="testimonials__inner">
+        <h2 class="testimonials__title">Lo que dicen nuestras clientas</h2>
+
+        <div class="testimonials__viewport">
+          <div class="testimonials__track">
+
+            <blockquote class="testimonial is-active">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">«Compré un jarrón pintado a mano y superó todas mis expectativas. Se nota el cariño que ponen en cada pieza.»</p>
+              <footer class="testimonial__author">Laura M.</footer>
+            </blockquote>
+
+            <blockquote class="testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">«El cuadro bordado es precioso, quedó perfecto en mi salón. ¡Seguro que repito!»</p>
+              <footer class="testimonial__author">Marta G.</footer>
+            </blockquote>
+
+            <blockquote class="testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">«Encargué un regalo personalizado para mi madre y le encantó. Un trato cercano y muy atentas en todo momento.»</p>
+              <footer class="testimonial__author">Carlos R.</footer>
+            </blockquote>
+
+            <blockquote class="testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">«Calidad artesanal a un precio increíble. Se nota que cada producto está hecho con mimo.»</p>
+              <footer class="testimonial__author">Ana P.</footer>
+            </blockquote>
+
+            <blockquote class="testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★☆</div>
+              <p class="testimonial__text">«Llegó muy rápido y tal cual salía en las fotos. ¡Volveré a comprar seguro!»</p>
+              <footer class="testimonial__author">Elena S.</footer>
+            </blockquote>
+
+          </div>
+
+          <!-- Flechas -->
+          <button class="testimonials__arrow testimonials__arrow--prev" id="testimonialPrev" aria-label="Reseña anterior">‹</button>
+          <button class="testimonials__arrow testimonials__arrow--next" id="testimonialNext" aria-label="Reseña siguiente">›</button>
+        </div>
+
+        <!-- Puntos -->
+        <div class="testimonials__dots" id="testimonialDots">
+          <button class="testimonials__dot is-active" data-slide="0" aria-label="Ir a la reseña 1"></button>
+          <button class="testimonials__dot" data-slide="1" aria-label="Ir a la reseña 2"></button>
+          <button class="testimonials__dot" data-slide="2" aria-label="Ir a la reseña 3"></button>
+          <button class="testimonials__dot" data-slide="3" aria-label="Ir a la reseña 4"></button>
+          <button class="testimonials__dot" data-slide="4" aria-label="Ir a la reseña 5"></button>
+        </div>
+
+        <p class="testimonials__note">Reseñas de ejemplo — sustituir por opiniones reales de clientas.</p>
+      </div>
+    </section>
+
+    <!-- Aquí seguiremos añadiendo: sobre nosotras, galería, contacto... -->
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <img src="assets/img/Logo_Claro1.png" alt="Claire & Sofi Decor" class="footer__logo">
+        <p class="footer__tagline">Objetos únicos creados a mano con mucho cariño.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v10.5a3.5 3.5 0 1 1-3-3.46"></path><path d="M14 3c0 2.5 2 4.5 4.5 4.5"></path></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 18c1-3.5 1.5-6 2-8.5.4-2 3.5-2 4 .2.3 1.4-.5 3.3-2.2 3.3-1 0-1.6-.7-1.4-1.7"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Navegación</h3>
+        <nav class="footer__links">
+          <a href="#inicio">Inicio</a>
+          <a href="tienda.html">Tienda</a>
+          <a href="galeria.html">Galería</a>
+          <a href="sobre-nosotras.html">Sobre nosotras</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Información</h3>
+        <nav class="footer__links">
+          <a href="#">Envíos y devoluciones</a>
+          <a href="#">Formas de pago</a>
+          <a href="#">Términos y condiciones</a>
+          <a href="contacto.html#preguntas-frecuentes">Preguntas frecuentes</a>
+        </nav>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Contacto</h3>
+        <nav class="footer__links">
+          <a href="mailto:claireysofia.decor@gmail.com">claireysofia.decor@gmail.com</a>
+          <span class="footer__info">Envíos a toda España</span>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 Claire & Sofi Decor. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
