@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Información | Claire & Sofi Decor</title>
+  <title>Producto | Claire & Sofi Decor</title>
   <link rel="icon" href="assets/img/favicon_io/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
@@ -93,42 +93,103 @@
 
   <main>
 
-    <!-- ===== CABECERA ===== -->
-    <section class="shop-hero">
-      <div class="shop-hero__inner">
-        <h1 class="shop-hero__title">Información</h1>
+    <!-- ===== FICHA DE PRODUCTO ===== -->
+    <!-- Página única: el contenido se rellena por JS según el ?id=... de la
+         URL (ver PRODUCTS_DATA en js/script.js). Se llega aquí haciendo clic
+         en cualquier tarjeta de producto (imagen o nombre) del resto de la web. -->
+    <section class="product-detail" id="productDetail">
+      <div class="product-detail__inner">
+
+        <a href="tienda.html" class="product-detail__back"><img src="assets/icons/icon_flecha_black_izda1.png" alt="" class="product-detail__back-icon"> Volver a la tienda</a>
+
+        <div class="product-detail__grid" id="productDetailGrid">
+
+          <!-- Galería de imágenes, con flechas para pasarlas a mano -->
+          <div class="product-detail__gallery">
+            <div class="product-detail__image" id="productImage"></div>
+            <div class="product-detail__thumbs" id="productImageThumbs"></div>
+          </div>
+
+          <!-- Nombre, precio, color y descripción -->
+          <div class="product-detail__info">
+            <h1 class="product-detail__name" id="productName"></h1>
+            <p class="product-detail__price" id="productPrice"></p>
+
+            <div class="product-detail__colors" id="productColorsBlock">
+              <span class="product-detail__colors-label">Color</span>
+              <div class="product-detail__color-options" id="productColors"></div>
+            </div>
+
+            <!-- Selector de variante (tamaño o color/estampado): solo aparece en
+                 productos "hechos" (no personalizables) que tengan hermanos reales
+                 ya fotografiados y en la web. Las opciones sin producto real
+                 detrás salen con poca opacidad y abren el aviso de "Agotado". -->
+            <div class="product-detail__variants is-hidden" id="productVariantsBlock">
+              <span class="product-detail__variants-label" id="productVariantsLabel">Tamaño</span>
+              <div class="product-detail__variant-options" id="productVariants"></div>
+            </div>
+
+            <p class="product-detail__description" id="productDescription"></p>
+            <p class="product-detail__sku" id="productSku" hidden></p>
+
+            <div class="product-detail__actions">
+              <button class="product-detail__add-cart btn-accent" id="productAddCart" type="button">Añadir al carrito</button>
+              <button class="product-detail__fav" id="productFav" type="button" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Se muestra en vez de lo anterior si el ?id=... no existe en el catálogo -->
+        <p class="product-detail__not-found" id="productNotFound" hidden>
+          No hemos encontrado este producto. Puede que el enlace esté equivocado — <a href="tienda.html">vuelve a la tienda</a> para seguir mirando.
+        </p>
+
       </div>
     </section>
 
-    <!-- ===== SECCIONES DE INFORMACIÓN ===== -->
-    <section class="info-content">
-      <div class="info-content__inner">
-
-        <article class="info-section" id="envios-devoluciones">
-          <h2 class="info-section__title">Envíos y devoluciones</h2>
-          <p class="info-section__text">Hacemos envíos a toda España. Como cada producto se prepara y se envía a mano, el tiempo de preparación puede variar según la cantidad de pedidos que tengamos en cada momento — te avisaremos por correo con una fecha aproximada de envío en cuanto confirmemos tu pedido.</p>
-          <p class="info-section__text">Al tratarse de productos artesanales, y en muchos casos personalizados, no podemos aceptar devoluciones salvo que la pieza llegue dañada o con algún defecto de fabricación. Si esto te ocurre, escríbenos a través de la página de <a href="contacto.html">Contacto</a> con fotos del producto y lo solucionaremos lo antes posible, ya sea con una reposición o con el reembolso correspondiente.</p>
-        </article>
-
-        <article class="info-section" id="formas-pago">
-          <h2 class="info-section__title">Formas de pago</h2>
-          <p class="info-section__text">Somos dos hermanas que acabamos de empezar con este pequeño negocio familiar, así que todavía no contamos con una pasarela de pago oficial (tarjeta, PayPal, etc.) integrada en la web.</p>
-          <p class="info-section__text">Por ahora, así es como funciona: añade los productos que quieras a tu <a href="carrito.html">carrito</a> y pulsa "Pagar". Se abrirá tu programa de correo con un mensaje ya redactado listando tu pedido; solo tienes que enviárnoslo. Te responderemos con un número de teléfono al que podrás hacer un Bizum por el importe total, y en cuanto lo recibamos empezaremos a preparar tu pedido, avisándote de cada avance.</p>
-          <p class="info-section__text">Iremos ampliando las formas de pago a medida que el negocio vaya creciendo. Gracias por tu paciencia y por apoyar un proyecto hecho con mucho cariño.</p>
-        </article>
-
-        <article class="info-section" id="terminos-condiciones">
-          <h2 class="info-section__title">Términos y condiciones</h2>
-          <p class="info-section__text">Este es un primer borrador de nuestros términos y condiciones, que iremos completando y actualizando a medida que el negocio crezca.</p>
-          <p class="info-section__text">Todos los productos de Claire & Sofi Decor están hechos a mano, por lo que pueden existir pequeñas variaciones de color, forma o acabado entre la fotografía y la pieza final; forma parte del carácter único de lo artesanal, no se considera un defecto.</p>
-          <p class="info-section__text">Un pedido se considera confirmado una vez recibido el pago por Bizum (puedes ver cómo funciona en la sección "Formas de pago" de esta misma página). En el caso de los productos personalizados, te pedimos que revises bien los datos que nos facilites (nombres, iniciales, colores, medidas…) antes de confirmar el pedido, ya que se preparan específicamente para ti.</p>
-          <p class="info-section__text">Si tienes cualquier duda sobre estos términos, puedes escribirnos cuando quieras desde la página de <a href="contacto.html">Contacto</a>.</p>
-        </article>
-
+    <!-- ===== TAMBIÉN PODRÍA GUSTARTE ===== -->
+    <section class="product-related" id="productRelated">
+      <div class="product-related__inner">
+        <h2 class="product-related__title">También podría gustarte…</h2>
+        <div class="product-related__grid" id="productRelatedGrid"></div>
       </div>
     </section>
 
   </main>
+
+  <!-- ===== MODAL PARA AMPLIAR LA IMAGEN DEL PRODUCTO =====
+       Mismo patrón visual que la modal de la Galería (assets/icons propios,
+       fondo oscurecido), pero sin nombre: aquí ya estamos en la ficha del
+       producto. Solo lleva la X para cerrar y, si hay más de una imagen,
+       las flechas para navegar entre ellas. -->
+  <div class="gallery-modal" id="productImageModal">
+    <button class="gallery-modal__close" id="productImageModalClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <button class="gallery-modal__arrow gallery-modal__arrow--prev" id="productImageModalPrev" aria-label="Imagen anterior">
+      <img src="assets/icons/icon_flecha_white_izda1.png" alt="" class="gallery-modal__arrow-icon">
+    </button>
+    <button class="gallery-modal__arrow gallery-modal__arrow--next" id="productImageModalNext" aria-label="Imagen siguiente">
+      <img src="assets/icons/icon_flecha_white_dcha1.png" alt="" class="gallery-modal__arrow-icon">
+    </button>
+    <div class="gallery-modal__inner">
+      <div class="gallery-modal__image" id="productImageModalImage"></div>
+    </div>
+  </div>
+
+  <!-- ===== AVISO "AGOTADO" (al elegir una variante de tamaño/color que
+       todavía no existe como producto real) ===== -->
+  <div class="stock-modal" id="stockModal">
+    <div class="stock-modal__inner">
+      <button class="stock-modal__close" id="stockModalClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <p class="stock-modal__text" id="stockModalText"></p>
+    </div>
+  </div>
 
   <!-- ===== PIE DE PÁGINA ===== -->
   <footer class="footer">

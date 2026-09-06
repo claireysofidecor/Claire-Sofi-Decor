@@ -54,8 +54,8 @@
                 <span class="tienda-dropdown__circle tienda-dropdown__circle--bolsas"></span>
                 <span class="tienda-dropdown__label">Bolsas</span>
               </a>
-              <a href="tienda.html?cat=personalizado" class="tienda-dropdown__item">
-                <span class="tienda-dropdown__circle tienda-dropdown__circle--personalizado"></span>
+              <a href="tienda.html?cat=personalizable" class="tienda-dropdown__item">
+                <span class="tienda-dropdown__circle tienda-dropdown__circle--personalizable"></span>
                 <span class="tienda-dropdown__label">Personalizado</span>
               </a>
             </div>
@@ -106,10 +106,11 @@
 
         <div class="shop-filters" id="shopFilters">
           <button class="shop-filters__btn is-active" data-filter="todo">Ver todo</button>
+          <button class="shop-filters__btn" data-filter="novedades">Novedades</button>
           <button class="shop-filters__btn" data-filter="servir">Para servir</button>
           <button class="shop-filters__btn" data-filter="decorar">Para decorar</button>
           <button class="shop-filters__btn" data-filter="bolsas">Bolsas</button>
-          <button class="shop-filters__btn" data-filter="personalizado">Personalizado</button>
+          <button class="shop-filters__btn" data-filter="personalizable">Personalizable</button>
         </div>
 
         <div class="shop__grid" id="shopGrid">
@@ -162,6 +163,75 @@
               <h3 class="product-card__name">Individual tejido a mano</h3>
               <div class="product-card__footer">
                 <p class="product-card__price">8,50&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="servir" data-id="tabla-estampado" data-description="Tabla redonda de madera de 18 cm con borde dorado y un estampado floral decoupage pintado a mano, ideal para servir o decorar la mesa." data-name="Tabla pequeña con estampado" data-price="22,00 €" data-image="url('assets/img/productos/tabla-estampado-1.jpg')">
+            <div class="product-card__image" style="background-image: url('assets/img/productos/tabla-estampado-1.jpg');">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Tabla pequeña con estampado</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">22,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="servir" data-id="tabla-estampado-grande" data-description="Tabla redonda de madera de 25 cm con borde dorado y un estampado floral decoupage pintado a mano, ideal para servir o decorar la mesa en formato grande." data-name="Tabla grande con estampado" data-price="26,00 €" data-image="url('assets/img/productos/tabla-estampado-grande-1.jpg')">
+            <div class="product-card__image" style="background-image: url('assets/img/productos/tabla-estampado-grande-1.jpg');">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Tabla grande con estampado</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">26,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="servir" data-personalizable="true" data-id="tabla-personalizable" data-description="Tabla redonda de madera lisa, personalizable a tu gusto (pintura, iniciales, motivo especial...), perfecta para servir en el día a día." data-name="Tabla personalizable para servir" data-price="18,00 €" data-image="url('assets/img/productos/tabla-plain-1.jpg')">
+            <div class="product-card__image" style="background-image: url('assets/img/productos/tabla-plain-1.jpg');">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Tabla personalizable para servir</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">18,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="servir" data-personalizable="true" data-id="taza-personalizada" data-description="Taza pintada a mano y personalizable a tu gusto, ideal para regalar." data-name="Taza pintada a mano (a tu gusto)" data-price="11,00 €" data-image="linear-gradient(135deg, #9FBFB5, #E4C878)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #9FBFB5, #E4C878);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Taza pintada a mano (a tu gusto)</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">11,00&nbsp;€</p>
                 <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
                 </button>
@@ -224,6 +294,58 @@
             </div>
           </article>
 
+          <article class="product-card" data-category="decorar" data-id="caja-panuelos-estampado" data-description="Caja de pañuelos de madera decorada a mano con papel decoupage de estampado floral, un toque de color para cualquier rincón de la casa." data-name="Caja de pañuelos con estampado floral" data-price="16,00 €" data-image="url('assets/img/productos/caja-panuelos-estampado-1.jpg')">
+            <div class="product-card__image" style="background-image: url('assets/img/productos/caja-panuelos-estampado-1.jpg');">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Caja de pañuelos con estampado floral</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">16,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="decorar" data-personalizable="true" data-id="caja-panuelos-personalizable" data-description="Caja de pañuelos de madera lisa, lista para personalizar a tu gusto (nombre, iniciales, colores...)." data-name="Caja de pañuelos personalizable" data-price="13,00 €" data-image="url('assets/img/productos/caja-panuelos-plain-1.jpg')">
+            <div class="product-card__image" style="background-image: url('assets/img/productos/caja-panuelos-plain-1.jpg');">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Caja de pañuelos personalizable</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">13,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="decorar" data-personalizable="true" data-id="cuadro-personalizado" data-description="Cuadro personalizado con el nombre que tú elijas, perfecto como regalo." data-name="Cuadro con nombre personalizado" data-price="26,00 €" data-image="linear-gradient(135deg, #55606B, #9FBFB5)">
+            <div class="product-card__image" style="background-image: linear-gradient(135deg, #55606B, #9FBFB5);">
+              <button class="product-card__fav" aria-label="Añadir a favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+              </button>
+              <span class="product-card__tag">Sustituir por foto real</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Cuadro con nombre personalizado</h3>
+              <div class="product-card__footer">
+                <p class="product-card__price">26,00&nbsp;€</p>
+                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
           <!-- Bolsas -->
           <article class="product-card" data-category="bolsas" data-id="bolsa-tote" data-description="Bolsa tote de tela pintada a mano, resistente y perfecta para el día a día." data-name="Bolsa tote pintada a mano" data-price="16,00 €" data-image="linear-gradient(135deg, #9FBFB5, #434B54)">
             <div class="product-card__image" style="background-image: linear-gradient(135deg, #9FBFB5, #434B54);">
@@ -279,44 +401,7 @@
             </div>
           </article>
 
-          <!-- Personalizado -->
-          <article class="product-card" data-category="personalizado" data-id="cuadro-personalizado" data-description="Cuadro personalizado con el nombre que tú elijas, perfecto como regalo." data-name="Cuadro con nombre personalizado" data-price="26,00 €" data-image="linear-gradient(135deg, #55606B, #9FBFB5)">
-            <div class="product-card__image" style="background-image: linear-gradient(135deg, #55606B, #9FBFB5);">
-              <button class="product-card__fav" aria-label="Añadir a favoritos">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-              <span class="product-card__tag">Sustituir por foto real</span>
-            </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">Cuadro con nombre personalizado</h3>
-              <div class="product-card__footer">
-                <p class="product-card__price">26,00&nbsp;€</p>
-                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="personalizado" data-id="taza-personalizada" data-description="Taza pintada a mano y personalizable a tu gusto, ideal para regalar." data-name="Taza pintada a mano (a tu gusto)" data-price="11,00 €" data-image="linear-gradient(135deg, #9FBFB5, #E4C878)">
-            <div class="product-card__image" style="background-image: linear-gradient(135deg, #9FBFB5, #E4C878);">
-              <button class="product-card__fav" aria-label="Añadir a favoritos">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-              <span class="product-card__tag">Sustituir por foto real</span>
-            </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">Taza pintada a mano (a tu gusto)</h3>
-              <div class="product-card__footer">
-                <p class="product-card__price">11,00&nbsp;€</p>
-                <button class="product-card__add-cart" type="button" aria-label="Añadir al carrito">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="17" cy="21" r="1"></circle><path d="M1 3h2l2.2 11.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L18.5 8H6"></path><line x1="19" y1="1" x2="19" y2="7"></line><line x1="16" y1="4" x2="22" y2="4"></line></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="personalizado" data-id="llavero-iniciales" data-description="Llavero artesanal personalizado con las iniciales que quieras." data-name="Llavero con iniciales" data-price="6,50 €" data-image="linear-gradient(135deg, #2E3338, #E4C878)">
+          <article class="product-card" data-category="bolsas" data-personalizable="true" data-id="llavero-iniciales" data-description="Llavero artesanal personalizado con las iniciales que quieras." data-name="Llavero con iniciales" data-price="6,50 €" data-image="linear-gradient(135deg, #2E3338, #E4C878)">
             <div class="product-card__image" style="background-image: linear-gradient(135deg, #2E3338, #E4C878);">
               <button class="product-card__fav" aria-label="Añadir a favoritos">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
@@ -387,7 +472,7 @@
       <div class="footer__col">
         <h3 class="footer__heading">Contacto</h3>
         <nav class="footer__links">
-          <a href="mailto:claireysofia.decor@gmail.com">claireysofia.decor@gmail.com</a>
+          <a href="mailto:claireysofi.decor@gmail.com">claireysofi.decor@gmail.com</a>
           <span class="footer__info">Envíos a toda España</span>
         </nav>
       </div>
