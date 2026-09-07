@@ -93,6 +93,25 @@ ul {
 }
 
 /* =========================================================
+   TRANSICIÓN ENTRE PÁGINAS
+   Al hacer clic en un enlace a otra página del sitio, el navegador
+   funde suavemente la página vieja con la nueva en vez de saltar de
+   golpe. Es una API nativa del navegador (View Transitions, para
+   navegación entre documentos): no hace falta JavaScript ni tocar
+   cada enlace, y en los navegadores que aún no la soporten no pasa
+   nada raro, simplemente navegan como siempre, sin transición.
+   ========================================================= */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: ease;
+}
+
+/* =========================================================
    NAV BAR
    ========================================================= */
 
@@ -771,9 +790,7 @@ ul {
   height: 40px;
   border-radius: 50%;
   background-color: var(--color-bg);
-  color: var(--color-text);
-  font-size: 24px;
-  line-height: 1;
+  color: var(--color-primary); /* gris pizarra, como pidió Juan */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -783,6 +800,15 @@ ul {
 .testimonials__arrow:hover {
   background-color: var(--color-primary);
   color: #fff;
+}
+
+.testimonials__arrow-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  /* El SVG usa stroke="currentColor" en el propio markup, así que
+     hereda automáticamente el color del botón (gris pizarra normal,
+     blanco al pasar el ratón) sin ninguna imagen externa de por medio. */
 }
 
 .testimonials__arrow--prev { left: 0; }
@@ -2834,6 +2860,68 @@ body.no-scroll {
 
 .product-detail__colors.is-hidden {
   display: none;
+}
+
+/* Pastilla "+" al final del selector de color en personalizables: pide un
+   color/estampado a medida que no esté en la lista (ver
+   .product-detail__custom-color justo abajo, la caja de texto que abre). */
+.product-detail__color--custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  border: 2px dashed var(--color-border);
+  box-shadow: none;
+  color: var(--color-text-soft);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.product-detail__color--custom:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.product-detail__color--custom.is-active {
+  border-style: solid;
+  border-color: var(--color-primary-dark);
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
+.product-detail__custom-color {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-detail__custom-color.is-hidden {
+  display: none;
+}
+
+.product-detail__custom-color-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.product-detail__custom-color-input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  resize: vertical;
+  min-height: 70px;
+  transition: border-color 0.2s ease;
+}
+
+.product-detail__custom-color-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
 }
 
 /* Selector de variante (tamaño o color/estampado) en la ficha de producto:

@@ -12,38 +12,17 @@
    Si se añade o cambia un producto en las tarjetas, hay que reflejarlo
    también aquí (mismo id). */
 const PRODUCTS_DATA = {
-  'bandeja-decorativa': {
-    dateAdded: '2026-08-15',
-    name: 'Bandeja decorativa pintada a mano',
-    category: 'servir',
-    price: '24,00 €',
-    description: 'Bandeja decorativa pintada a mano, ideal para servir en la mesa o decorar una estantería.',
-    images: ["linear-gradient(135deg, #9FBFB5, #55606B)"],
-  },
-  'posavasos-macrame': {
-    dateAdded: '2026-08-15',
-    name: 'Posavasos de macramé (juego de 4)',
-    category: 'servir',
-    price: '12,00 €',
-    description: 'Juego de 4 posavasos tejidos a mano en macramé, perfectos para proteger tu mesa con estilo.',
-    images: ["linear-gradient(135deg, #E4C878, #55606B)"],
-  },
-  'individual-tejido': {
-    dateAdded: '2026-08-15',
-    name: 'Individual tejido a mano',
-    category: 'servir',
-    price: '8,50 €',
-    description: 'Individual tejido a mano en fibra natural, para vestir la mesa en el día a día o en ocasiones especiales.',
-    images: ["linear-gradient(135deg, #434B54, #9FBFB5)"],
-  },
+  /* ---- Tablas (tipo TAB, familia 'tabla': tamaño 18/25 cm x color liso/estampado) ---- */
   'tabla-estampado': {
     dateAdded: '2026-09-06',
     name: 'Tabla pequeña con estampado',
     category: 'servir',
+    type: 'TAB',
+    family: 'tabla',
+    variant: { size: '18', color: 'FLO1' },
     price: '22,00 €',
     description: 'Tabla redonda de madera de 18 cm con borde dorado y un estampado floral decoupage pintado a mano, ideal para servir o decorar la mesa.',
     images: ["url('assets/img/productos/tabla-estampado-1.jpg')", "url('assets/img/productos/tabla-estampado-2.jpg')"],
-    variantGroup: 'tabla-estampado',
     // DE PRUEBA (2026-09-06): códigos ficticios para que Juan pruebe el flujo
     // de carrito/checkout antes de tener productos reales en stock. `skus` es
     // la lista de códigos de las unidades físicas que quedan disponibles AHORA
@@ -60,137 +39,270 @@ const PRODUCTS_DATA = {
     dateAdded: '2026-09-06',
     name: 'Tabla grande con estampado',
     category: 'servir',
+    type: 'TAB',
+    family: 'tabla',
+    variant: { size: '25', color: 'FLO1' },
     price: '26,00 €',
     description: 'Tabla redonda de madera de 25 cm con borde dorado y un estampado floral decoupage pintado a mano, ideal para servir o decorar la mesa en formato grande.',
     images: ["url('assets/img/productos/tabla-estampado-grande-1.jpg')", "url('assets/img/productos/tabla-estampado-grande-2.jpg')"],
-    variantGroup: 'tabla-estampado',
     // DE PRUEBA (2026-09-06): lista de códigos vacía a propósito, para que
     // Juan vea el estado "Agotado" (tarjeta atenuada + sello, ficha sin poder
     // añadir al carrito) sin tener que fabricar ni editar nada más. Ver nota
     // igual en 'tabla-estampado' de arriba.
     skus: [],
   },
+  'tabla-natural-18': {
+    dateAdded: '2026-09-06',
+    name: 'Tabla pequeña madera natural',
+    category: 'servir',
+    type: 'TAB',
+    family: 'tabla',
+    variant: { size: '18', color: 'MAD' },
+    price: '22,00 €',
+    description: 'Tabla redonda de madera de 18 cm en acabado natural liso, sin estampado, para servir o decorar la mesa con un toque más sobrio.',
+    images: ["linear-gradient(135deg, #C9A66B, #EAEAE7)"],
+  },
+  'tabla-natural-25': {
+    dateAdded: '2026-09-06',
+    name: 'Tabla grande madera natural',
+    category: 'servir',
+    type: 'TAB',
+    family: 'tabla',
+    variant: { size: '25', color: 'MAD' },
+    price: '26,00 €',
+    description: 'Tabla redonda de madera de 25 cm en acabado natural liso, sin estampado, para servir o decorar la mesa en formato grande.',
+    images: ["linear-gradient(135deg, #C9A66B, #9FBFB5)"],
+  },
   'tabla-personalizable': {
     dateAdded: '2026-09-06',
-    name: 'Tabla personalizable para servir',
+    name: 'Tabla personalizable',
     category: 'servir',
+    type: 'TAB',
+    family: 'tabla',
     personalizable: true,
     price: '18,00 €',
-    description: 'Tabla redonda de madera lisa, personalizable a tu gusto (pintura, iniciales, motivo especial...), perfecta para servir en el día a día.',
+    description: 'Tabla redonda de madera lisa, personalizable a tu gusto (pintura, iniciales, motivo especial...) en el tamaño y acabado que elijas.',
     images: ["url('assets/img/productos/tabla-plain-1.jpg')", "url('assets/img/productos/tabla-plain-2.jpg')"],
-    // Es un producto real (categoría/tipo confirmados), pero se hace bajo
-    // pedido — no hay unidades físicas en stock que contar, así que no lleva
-    // `skus`, lleva un `refCode` fijo de modelo. El bloque de color ("PER")
-    // es un placeholder a propósito: lo elige cada cliente al encargarlo, es
-    // la única parte del código que cambiará en el futuro (2026-09-06,
-    // pedido explícito de Juan). El tamaño ("UNI") es el mejor dato
-    // disponible por ahora: el producto no tiene variantes de tamaño
-    // definidas — revisar si en el futuro se ofrece en más de un tamaño.
-    refCode: 'SER-TAB-PER-UNI-001',
   },
-  'jarron-ceramica': {
-    dateAdded: '2026-08-15',
-    name: 'Jarrón de cerámica pintado a mano',
-    category: 'decorar',
-    price: '18,00 €',
-    description: 'Jarrón de cerámica pintado a mano, pieza única para flores secas o naturales.',
-    images: ["linear-gradient(135deg, #5F8A80, #E4C878)"],
-  },
-  'cuadro-bordado': {
-    dateAdded: '2026-08-15',
-    name: 'Cuadro bordado a mano',
-    category: 'decorar',
-    price: '22,50 €',
-    description: 'Cuadro bordado a mano con hilo de algodón, un toque textil y artesanal para cualquier pared.',
-    images: ["linear-gradient(135deg, #55606B, #E4C878)"],
-  },
-  'vela-decorativa': {
-    dateAdded: '2026-08-15',
-    name: 'Vela decorativa artesanal',
-    category: 'decorar',
-    price: '9,50 €',
-    description: 'Vela decorativa artesanal, aromática y hecha con cera natural.',
-    images: ["linear-gradient(135deg, #2E3338, #9FBFB5)"],
-  },
+
+  /* ---- Cajas de pañuelos (tipo CAJ, familia 'caja-panuelos': solo color) ---- */
   'caja-panuelos-estampado': {
     dateAdded: '2026-09-06',
     name: 'Caja de pañuelos con estampado floral',
     category: 'decorar',
+    type: 'CAJ',
+    family: 'caja-panuelos',
+    variant: { color: 'FLO1' },
     price: '16,00 €',
     description: 'Caja de pañuelos de madera decorada a mano con papel decoupage de estampado floral, un toque de color para cualquier rincón de la casa.',
     images: ["url('assets/img/productos/caja-panuelos-estampado-1.jpg')", "url('assets/img/productos/caja-panuelos-estampado-2.jpg')"],
+  },
+  'caja-panuelos-blanca': {
+    dateAdded: '2026-09-06',
+    name: 'Caja de pañuelos blanca',
+    category: 'decorar',
+    type: 'CAJ',
+    family: 'caja-panuelos',
+    variant: { color: 'BLA' },
+    price: '16,00 €',
+    description: 'Caja de pañuelos de madera pintada en blanco liso, un básico que combina con cualquier decoración.',
+    images: ["linear-gradient(135deg, #FFFFFF, #C9CDD2)"],
+  },
+  'caja-panuelos-verde': {
+    dateAdded: '2026-09-06',
+    name: 'Caja de pañuelos verde agua',
+    category: 'decorar',
+    type: 'CAJ',
+    family: 'caja-panuelos',
+    variant: { color: 'VER' },
+    price: '16,00 €',
+    description: 'Caja de pañuelos de madera pintada en verde agua, un color suave para dar vida a cualquier estancia.',
+    images: ["linear-gradient(135deg, #9FBFB5, #434B54)"],
   },
   'caja-panuelos-personalizable': {
     dateAdded: '2026-09-06',
     name: 'Caja de pañuelos personalizable',
     category: 'decorar',
+    type: 'CAJ',
+    family: 'caja-panuelos',
     personalizable: true,
     price: '13,00 €',
     description: 'Caja de pañuelos de madera lisa, lista para personalizar a tu gusto (nombre, iniciales, colores...).',
-    images: ["url('assets/img/productos/caja-panuelos-plain-1.jpg')", "url('assets/img/productos/caja-panuelos-plain-2.jpg')", "url('assets/img/productos/caja-panuelos-plain-3.jpg')"],
-    // Igual que 'tabla-personalizable' de arriba: producto real bajo pedido,
-    // `refCode` fijo de modelo con el color en "PER" (a elegir por el
-    // cliente) y tamaño en "UNI" (sin variantes de tamaño definidas).
-    refCode: 'DEC-CAJ-PER-UNI-001',
+    images: ["url('assets/img/productos/caja-panuelos-plain-1.png')", "url('assets/img/productos/caja-panuelos-plain-2.jpg')", "url('assets/img/productos/caja-panuelos-plain-3.jpg')"],
   },
-  'cesta-macrame': {
+
+  /* ---- Bandejas decorativas (tipo BAN, familia 'bandeja': solo color) ---- */
+  'bandeja-decorativa': {
     dateAdded: '2026-08-15',
-    name: 'Cesta de macramé',
-    category: 'decorar',
-    price: '15,00 €',
-    description: 'Cesta tejida a mano en macramé, ideal para guardar mantas, plantas o lo que más te guste con un toque natural.',
-    images: ["linear-gradient(135deg, #5F8A80, #E4C878)"],
+    name: 'Bandeja decorativa verde agua',
+    category: 'servir',
+    type: 'BAN',
+    family: 'bandeja',
+    variant: { color: 'VER' },
+    price: '24,00 €',
+    description: 'Bandeja decorativa pintada a mano en verde agua, ideal para servir en la mesa o decorar una estantería.',
+    images: ["linear-gradient(135deg, #9FBFB5, #55606B)"],
+  },
+  'bandeja-decorativa-blanca': {
+    dateAdded: '2026-09-06',
+    name: 'Bandeja decorativa blanca',
+    category: 'servir',
+    type: 'BAN',
+    family: 'bandeja',
+    variant: { color: 'BLA' },
+    price: '24,00 €',
+    description: 'Bandeja decorativa pintada a mano en blanco liso, ideal para servir en la mesa o decorar una estantería.',
+    images: ["linear-gradient(135deg, #EAEAE7, #C9CDD2)"],
+  },
+  'bandeja-decorativa-madera': {
+    dateAdded: '2026-09-06',
+    name: 'Bandeja decorativa madera natural',
+    category: 'servir',
+    type: 'BAN',
+    family: 'bandeja',
+    variant: { color: 'MAD' },
+    price: '24,00 €',
+    description: 'Bandeja decorativa en acabado madera natural, ideal para servir en la mesa o decorar una estantería.',
+    images: ["linear-gradient(135deg, #C9A66B, #55606B)"],
+  },
+  'bandeja-personalizable': {
+    dateAdded: '2026-09-06',
+    name: 'Bandeja decorativa personalizable',
+    type: 'BAN',
+    family: 'bandeja',
+    personalizable: true,
+    price: '20,00 €',
+    description: 'Bandeja decorativa lisa, lista para personalizar en el color que elijas (nombre, iniciales, motivo especial...).',
+    images: ["linear-gradient(135deg, #EAEAE7, #9FBFB5)"],
+  },
+
+  /* ---- Bolsas tote (tipo TOT, familia 'bolsa-tote': solo tamaño) ---- */
+  'bolsa-tote-pequena': {
+    dateAdded: '2026-09-06',
+    name: 'Bolsa tote pequeña',
+    category: 'bolsas',
+    type: 'TOT',
+    family: 'bolsa-tote',
+    variant: { size: 'P' },
+    price: '13,00 €',
+    description: 'Bolsa tote pequeña de tela pintada a mano, perfecta como bolso de diario o para regalar.',
+    images: ["linear-gradient(135deg, #E4C878, #9FBFB5)"],
   },
   'bolsa-tote': {
     dateAdded: '2026-08-15',
-    name: 'Bolsa tote pintada a mano',
+    name: 'Bolsa tote mediana',
     category: 'bolsas',
+    type: 'TOT',
+    family: 'bolsa-tote',
+    variant: { size: 'M' },
     price: '16,00 €',
     description: 'Bolsa tote de tela pintada a mano, resistente y perfecta para el día a día.',
     images: ["linear-gradient(135deg, #9FBFB5, #434B54)"],
   },
-  'bolsa-macrame': {
-    dateAdded: '2026-08-15',
-    name: 'Bolsa de macramé',
+  'bolsa-tote-grande': {
+    dateAdded: '2026-09-06',
+    name: 'Bolsa tote grande',
     category: 'bolsas',
-    price: '19,50 €',
-    description: 'Bolsa tejida a mano en macramé, ligera y con mucho carácter.',
-    images: ["linear-gradient(135deg, #E4C878, #5F8A80)"],
+    type: 'TOT',
+    family: 'bolsa-tote',
+    variant: { size: 'G' },
+    price: '19,00 €',
+    description: 'Bolsa tote grande de tela pintada a mano, con capacidad de sobra para la compra o la playa.',
+    images: ["linear-gradient(135deg, #434B54, #9FBFB5)"],
   },
-  'neceser-bordado': {
-    dateAdded: '2026-08-15',
-    name: 'Neceser bordado a mano',
-    category: 'bolsas',
+  'bolsa-tote-personalizable': {
+    dateAdded: '2026-09-06',
+    name: 'Bolsa tote personalizable',
+    type: 'TOT',
+    family: 'bolsa-tote',
+    personalizable: true,
     price: '13,00 €',
-    description: 'Neceser bordado a mano, ideal para guardar tus cosas con un toque personal.',
-    images: ["linear-gradient(135deg, #434B54, #E4C878)"],
+    description: 'Bolsa tote de tela lisa, lista para personalizar en el tamaño que elijas (nombre, iniciales, motivo especial...).',
+    images: ["linear-gradient(135deg, #EAEAE7, #434B54)"],
   },
+
+  /* ---- Posavasos de cristal (tipo POS, familia 'posavasos': solo color) —
+     tipo nuevo, todavía sin ningún producto fotografiado. ---- */
+  'posavasos-cristal-estampado': {
+    dateAdded: '2026-09-06',
+    name: 'Posavasos de cristal con estampado floral',
+    category: 'servir',
+    type: 'POS',
+    family: 'posavasos',
+    variant: { color: 'FLO1' },
+    price: '9,00 €',
+    description: 'Posavasos de cristal decorado a mano con estampado floral decoupage, protege la mesa con un toque de color.',
+    images: ["linear-gradient(135deg, #C9738A, #9FBFB5)"],
+  },
+  'posavasos-cristal-blanco': {
+    dateAdded: '2026-09-06',
+    name: 'Posavasos de cristal blanco',
+    category: 'servir',
+    type: 'POS',
+    family: 'posavasos',
+    variant: { color: 'BLA' },
+    price: '9,00 €',
+    description: 'Posavasos de cristal pintado en blanco liso, un básico discreto para el día a día.',
+    images: ["linear-gradient(135deg, #FFFFFF, #9FBFB5)"],
+  },
+  'posavasos-personalizable': {
+    dateAdded: '2026-09-06',
+    name: 'Posavasos de cristal personalizable',
+    type: 'POS',
+    family: 'posavasos',
+    personalizable: true,
+    price: '7,00 €',
+    description: 'Posavasos de cristal liso, listo para personalizar en el color que elijas (nombre, iniciales, motivo especial...).',
+    images: ["linear-gradient(135deg, #EAEAE7, #C9CDD2)"],
+  },
+
+  /* ---- Platitos pequeños (tipo PLA, familia 'platito': solo color) —
+     tipo nuevo, todavía sin ningún producto fotografiado. ---- */
+  'platito-pan-amarillo': {
+    dateAdded: '2026-09-06',
+    name: 'Platito pequeño amarillo suave',
+    category: 'servir',
+    type: 'PLA',
+    family: 'platito',
+    variant: { color: 'AMA' },
+    price: '7,00 €',
+    description: 'Platito pequeño pintado a mano en amarillo suave, perfecto para el pan o como platito de apoyo en la mesa.',
+    images: ["linear-gradient(135deg, #E4C878, #FFFFFF)"],
+  },
+  'platito-pan-blanco': {
+    dateAdded: '2026-09-06',
+    name: 'Platito pequeño blanco',
+    category: 'servir',
+    type: 'PLA',
+    family: 'platito',
+    variant: { color: 'BLA' },
+    price: '7,00 €',
+    description: 'Platito pequeño pintado en blanco liso, un básico versátil para la mesa.',
+    images: ["linear-gradient(135deg, #FFFFFF, #C9A66B)"],
+  },
+  'platito-personalizable': {
+    dateAdded: '2026-09-06',
+    name: 'Platito personalizable',
+    type: 'PLA',
+    family: 'platito',
+    personalizable: true,
+    price: '5,00 €',
+    description: 'Platito pequeño liso, listo para personalizar en el color que elijas (nombre, iniciales, motivo especial...).',
+    images: ["linear-gradient(135deg, #EAEAE7, #E4C878)"],
+  },
+
+  /* ---- Cuadro personalizado (tipo CUA, familia 'cuadro': solo existe como
+     personalizable, no tiene "hermanos" ya hechos con stock). ---- */
   'cuadro-personalizado': {
     dateAdded: '2026-08-15',
     name: 'Cuadro con nombre personalizado',
     category: 'decorar',
+    type: 'CUA',
+    family: 'cuadro',
     personalizable: true,
     price: '26,00 €',
-    description: 'Cuadro personalizado con el nombre que tú elijas, perfecto como regalo.',
+    description: 'Cuadro personalizado con el nombre que tú elijas, en el color de marco que prefieras — perfecto como regalo.',
     images: ["linear-gradient(135deg, #55606B, #9FBFB5)"],
-  },
-  'taza-personalizada': {
-    dateAdded: '2026-08-15',
-    name: 'Taza pintada a mano (a tu gusto)',
-    category: 'servir',
-    personalizable: true,
-    price: '11,00 €',
-    description: 'Taza pintada a mano y personalizable a tu gusto, ideal para regalar.',
-    images: ["linear-gradient(135deg, #9FBFB5, #E4C878)"],
-  },
-  'llavero-iniciales': {
-    dateAdded: '2026-08-15',
-    name: 'Llavero con iniciales',
-    category: 'bolsas',
-    personalizable: true,
-    price: '6,50 €',
-    description: 'Llavero artesanal personalizado con las iniciales que quieras.',
-    images: ["linear-gradient(135deg, #2E3338, #E4C878)"],
   },
 };
 
@@ -204,47 +316,153 @@ function getRecentProductIds(count) {
     .slice(0, count);
 }
 
-/* Selector de color de la ficha de producto: por ahora es una pieza de
-   interfaz genérica (mismas muestras para todos los productos, sin efecto
-   real sobre el precio/imagen) a la espera de decidir qué variantes tiene
-   cada producto. */
-const PRODUCT_COLOR_OPTIONS = [
-  { name: 'Madera natural', value: '#C9A66B' },
-  { name: 'Blanco', value: '#FFFFFF' },
-  { name: 'Verde agua', value: '#9FBFB5' },
-  { name: 'Amarillo suave', value: '#E4C878' },
-  { name: 'Gris pizarra', value: '#55606B' },
-];
+/* Tipo de producto (código de 3 letras, bloque 2 del SKU real) → categoría
+   de SKU (bloque 1): esta tabla es INDEPENDIENTE de `category` (que solo
+   decide en qué filtro de la Tienda aparece el producto). Por qué hace
+   falta: un producto personalizable podría en el futuro no tener
+   `category` (sin filtro fijo de Tienda), pero su código real siempre debe
+   llevar el mismo prefijo de categoría que el resto de su tipo (todas las
+   TAB son SER, pase lo que pase con el filtro de la tienda). */
+const TYPE_TO_SKU_CATEGORY = {
+  TAB: 'SER',
+  CAJ: 'DEC',
+  BAN: 'SER',
+  POS: 'SER',
+  TOT: 'BOL',
+  PLA: 'SER',
+  CUA: 'DEC',
+};
 
-/* Grupos de variantes reales (tamaño o color/estampado) para productos ya
-   "hechos" (con stock, no personalizables): cada producto de PRODUCTS_DATA
-   que pertenece a un grupo lleva `variantGroup: '<clave-aquí>'`, y aquí se
-   listan TODAS las opciones posibles de ese grupo en orden. Si una opción
-   tiene `id`, es un producto real y el selector navega a su ficha; si su
-   `id` es null, esa variante todavía no existe como producto fotografiado
-   y el selector la muestra deshabilitada (clic → aviso de "Agotado").
-   `axis` decide la etiqueta que se muestra: 'size' → "Tamaño",
-   'pattern' → "Color" (aunque sean estampados distintos, en la interfaz se
-   llaman "color", tal y como se pidió). `baseName` es el nombre del
-   "modelo" sin la variante, usado en el texto del aviso de Agotado.
-   Vacío por ahora: se rellena grupo a grupo según se van fotografiando y
-   confirmando las variantes reales de cada producto (empezando por las
-   tablas). */
-const VARIANT_GROUPS = {
-  'tabla-estampado': {
-    axis: 'size',
+/* Familias de variantes: agrupan los productos "hechos" (con stock, no
+   personalizables) que son el mismo objeto en distinto tamaño y/o
+   color/estampado, y además son la fuente de opciones elegibles del
+   producto personalizable de su mismo `type` (pedido de Juan 2026-09:
+   "cada estampado y cada tamaño existente, según el tipo de producto,
+   debe ser una opción elegible en los personalizables").
+   - `axes`: qué ejes tiene esta familia ('size', 'color', o ambos).
+   - `sizes` / `colors`: opciones de cada eje que tenga, en orden; `swatch`
+     es el color de la muestra redonda del selector (inventado para los
+     estampados, que no son un color plano).
+   - `matrix`: qué producto real de PRODUCTS_DATA corresponde a cada
+     combinación de opciones (clave = valores de `axes` en ese orden,
+     unidos con "|"; con un solo eje, la clave es directamente ese
+     código). Si una combinación no tiene producto real detrás todavía,
+     no aparece como clave: el selector la deshabilita y muestra el aviso
+     de "Agotado" (igual que antes).
+   `cuadro` no lleva `matrix`: el cuadro personalizado no tiene ningún
+   "hermano" ya hecho con stock, solo existe como personalizable — su eje
+   de color se usa igual como opciones elegibles, pero nunca para navegar
+   a un hermano real. */
+const PRODUCT_FAMILIES = {
+  tabla: {
+    type: 'TAB',
     baseName: 'Tabla con estampado',
-    options: [
-      { label: 'Pequeña (18 cm)', id: 'tabla-estampado' },
-      { label: 'Grande (25 cm)', id: 'tabla-estampado-grande' },
+    axes: ['size', 'color'],
+    sizes: [
+      { code: '18', label: 'Pequeña (18 cm)' },
+      { code: '25', label: 'Grande (25 cm)' },
+    ],
+    colors: [
+      { code: 'FLO1', label: 'Estampado floral', swatch: '#C9738A' },
+      { code: 'MAD', label: 'Madera natural', swatch: '#C9A66B' },
+    ],
+    matrix: {
+      '18|FLO1': 'tabla-estampado',
+      '25|FLO1': 'tabla-estampado-grande',
+      '18|MAD': 'tabla-natural-18',
+      '25|MAD': 'tabla-natural-25',
+    },
+  },
+  'caja-panuelos': {
+    type: 'CAJ',
+    baseName: 'Caja de pañuelos',
+    axes: ['color'],
+    colors: [
+      { code: 'FLO1', label: 'Estampado floral', swatch: '#C9738A' },
+      { code: 'BLA', label: 'Blanco', swatch: '#FFFFFF' },
+      { code: 'VER', label: 'Verde agua', swatch: '#9FBFB5' },
+    ],
+    matrix: {
+      FLO1: 'caja-panuelos-estampado',
+      BLA: 'caja-panuelos-blanca',
+      VER: 'caja-panuelos-verde',
+    },
+  },
+  bandeja: {
+    type: 'BAN',
+    baseName: 'Bandeja decorativa',
+    axes: ['color'],
+    colors: [
+      { code: 'VER', label: 'Verde agua', swatch: '#9FBFB5' },
+      { code: 'BLA', label: 'Blanco', swatch: '#FFFFFF' },
+      { code: 'MAD', label: 'Madera natural', swatch: '#C9A66B' },
+    ],
+    matrix: {
+      VER: 'bandeja-decorativa',
+      BLA: 'bandeja-decorativa-blanca',
+      MAD: 'bandeja-decorativa-madera',
+    },
+  },
+  'bolsa-tote': {
+    type: 'TOT',
+    baseName: 'Bolsa tote',
+    axes: ['size'],
+    sizes: [
+      { code: 'P', label: 'Pequeña' },
+      { code: 'M', label: 'Mediana' },
+      { code: 'G', label: 'Grande' },
+    ],
+    matrix: {
+      P: 'bolsa-tote-pequena',
+      M: 'bolsa-tote',
+      G: 'bolsa-tote-grande',
+    },
+  },
+  posavasos: {
+    type: 'POS',
+    baseName: 'Posavasos de cristal',
+    axes: ['color'],
+    colors: [
+      { code: 'FLO1', label: 'Estampado floral', swatch: '#C9738A' },
+      { code: 'BLA', label: 'Blanco', swatch: '#FFFFFF' },
+    ],
+    matrix: {
+      FLO1: 'posavasos-cristal-estampado',
+      BLA: 'posavasos-cristal-blanco',
+    },
+  },
+  platito: {
+    type: 'PLA',
+    baseName: 'Platito pequeño',
+    axes: ['color'],
+    colors: [
+      { code: 'AMA', label: 'Amarillo suave', swatch: '#E4C878' },
+      { code: 'BLA', label: 'Blanco', swatch: '#FFFFFF' },
+    ],
+    matrix: {
+      AMA: 'platito-pan-amarillo',
+      BLA: 'platito-pan-blanco',
+    },
+  },
+  cuadro: {
+    type: 'CUA',
+    baseName: 'Cuadro personalizado',
+    axes: ['color'],
+    colors: [
+      { code: 'MAD', label: 'Marco madera natural', swatch: '#C9A66B' },
+      { code: 'BLA', label: 'Marco blanco', swatch: '#FFFFFF' },
+      { code: 'GRI', label: 'Marco gris pizarra', swatch: '#55606B' },
     ],
   },
 };
 
-const VARIANT_AXIS_LABELS = {
-  size: 'Tamaño',
-  pattern: 'Color',
-};
+// Construye la clave de `matrix` (o de comparación de variante) a partir de
+// los ejes que tenga esa familia y los valores elegidos, siempre en el
+// mismo orden en el que se declaró `axes`, para que nunca se desincronice
+// con las claves escritas a mano arriba.
+function familyKey(family, values) {
+  return family.axes.map(axis => values[axis]).join('|');
+}
 
 /* ---------- Código de producto (SKU) y stock ----------
    Campo opcional en cada entrada de PRODUCTS_DATA:
@@ -287,22 +505,21 @@ function getSkusForQty(product, qty) {
 // Referencia(s) a mostrar/usar para un producto, sea cual sea su tipo:
 // - Gestionado por stock (`skus`): las unidades más bajas disponibles para
 //   la cantidad pedida (ver getSkusForQty).
-// - Con `refCode` (productos personalizables/bajo pedido: no hay unidades
-//   físicas en stock que contar, pero sí un código de referencia fijo del
-//   modelo) — siempre el mismo código, independientemente de la cantidad.
+// - Personalizable con código ya calculado (`liveRefCode`): el código
+//   "PER-..." de esa combinación exacta elegida por el cliente — no vive
+//   en PRODUCTS_DATA porque depende de la selección de cada pedido (ver
+//   computePersonalizableCode en la ficha de producto, y el `refCode`
+//   guardado en cada línea del carrito).
 // - Ninguno de los dos: lista vacía (no hay nada que mostrar).
-function getDisplayRefs(product, qty) {
+function getDisplayRefs(product, qty, liveRefCode) {
   if (!product) return [];
+  if (liveRefCode) return [liveRefCode];
   if (isStockManaged(product)) return getSkusForQty(product, qty);
-  if (product.refCode) return [product.refCode];
   return [];
 }
 
-// Traduce el color/estampado y el tamaño codificados en un código de
-// referencia (bloques 3 y 4, ej. "SER-TAB-FLO1-18-001") a un texto legible
-// para el comprador, ej. "18 cm · Estampado floral 1". Se deriva siempre del
-// propio código en vez de guardar el dato por duplicado en otro campo, para
-// que nunca puedan quedar desincronizados.
+// Traduce el color/estampado y el tamaño de un código de referencia a un
+// texto legible (ver describeSkuCode, más abajo, que explica el formato).
 const SKU_COLOR_LABELS = {
   LIS: 'Liso',
   MAD: 'Madera natural',
@@ -316,14 +533,34 @@ const SKU_COLOR_LABELS = {
 const SKU_PATTERN_FAMILY_LABELS = {
   FLO: 'Estampado floral',
 };
-function describeSkuCode(code) {
+function describeSkuCode(code, customColorLabel) {
   if (!code) return '';
   const parts = code.split('-');
-  const colorCode = parts[2];
-  const sizeCode = parts[3];
+  const isPersonalizable = parts[0] === 'PER';
+  // Quita el prefijo ("PER" o la categoría) y, en los códigos reales, el
+  // nº de unidad del final: lo que queda son solo los bloques de
+  // color/tamaño de esta pieza en concreto (1 o 2 bloques, según los ejes
+  // de su familia).
+  const meaningful = isPersonalizable ? parts.slice(3) : parts.slice(2, 4);
 
-  let colorLabel = colorCode || '';
-  if (colorCode) {
+  let colorCode = null;
+  let sizeCode = null;
+  meaningful.forEach(token => {
+    if (!token) return;
+    const looksLikeSize = /^\d+$/.test(token) || ['P', 'M', 'G', 'UNI'].includes(token);
+    if (looksLikeSize && sizeCode === null) {
+      sizeCode = token;
+    } else if (colorCode === null) {
+      colorCode = token;
+    }
+  });
+
+  // Si viene una descripción propia del cliente (personalización a medida,
+  // ver "Otro: descríbelo tú" en el selector de color), esa es siempre la
+  // que se muestra en vez de traducir el código — el código en sí solo
+  // lleva "PER" en el bloque de color, que no dice nada útil por sí solo.
+  let colorLabel = customColorLabel || colorCode || '';
+  if (!customColorLabel && colorCode) {
     if (SKU_COLOR_LABELS[colorCode]) {
       colorLabel = SKU_COLOR_LABELS[colorCode];
     } else {
@@ -907,9 +1144,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Devuelve { ok: true } si se pudo añadir, o { ok: false, available } si
   // ya hay en el carrito tantas unidades de este producto como stock
   // gestionado queda (nunca bloquea productos sin stock gestionado).
+  // `product.refCode`, cuando lo lleva (personalizables: el código
+  // "PER-..." ya calculado con las opciones elegidas), forma parte de la
+  // clave de "es la misma línea del carrito": dos pedidos personalizados
+  // con distinto color/tamaño elegido son piezas distintas y NUNCA deben
+  // sumarse en una sola línea, aunque compartan `id` de producto.
   function addToCart(product) {
     const cart = getCart();
-    const existing = cart.find(item => item.id === product.id);
+    const existing = cart.find(item => item.id === product.id && item.refCode === product.refCode && (item.customNote || '') === (product.customNote || ''));
     const currentQty = existing ? existing.qty : 0;
     const data = PRODUCTS_DATA[product.id];
 
@@ -949,10 +1191,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Botones "Añadir al carrito": tanto los de las tarjetas estáticas del
   // catálogo como los de tarjetas pintadas dinámicamente (Favoritos) usan
   // esta misma función para engancharse.
+  // Las tarjetas de productos personalizables no pueden añadirse al
+  // carrito directamente desde aquí (hace falta elegir color/tamaño
+  // antes) — en su lugar, el botón lleva a la ficha del producto, donde
+  // sí están los selectores (pedido de Juan 2026-09: no se puede añadir
+  // al carrito hasta elegir todas las opciones).
   function wireAddToCartButtons(scope) {
     scope.querySelectorAll('.product-card[data-id] .product-card__add-cart').forEach(addBtn => {
+      const card = addBtn.closest('.product-card');
+
+      if (card.dataset.personalizable === 'true') {
+        addBtn.setAttribute('aria-label', 'Elegir opciones y personalizar');
+        addBtn.addEventListener('click', () => {
+          window.location.href = `producto.html?id=${encodeURIComponent(card.dataset.id)}`;
+        });
+        return;
+      }
+
       addBtn.addEventListener('click', () => {
-        const card = addBtn.closest('.product-card');
         const result = addToCart({
           id: card.dataset.id,
           name: card.dataset.name,
@@ -1006,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cartList.innerHTML = cart.map(item => {
         const data = PRODUCTS_DATA[item.id];
-        const itemRefs = getDisplayRefs(data, item.qty);
+        const itemRefs = getDisplayRefs(data, item.qty, item.refCode);
         const refLabel = itemRefs.length > 1 ? 'Refs' : 'Ref';
         // Con referencia asignada, la tarjeta pasa a 3 líneas: nombre,
         // tamaño/color (derivados del propio código, para que nunca puedan
@@ -1014,7 +1270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // COMPLETO al precio unitario, que ya se ve a la derecha en
         // .cart-item__subtotal. Sin referencia asignada, se deja tal cual
         // estaba: solo el precio unitario debajo del nombre.
-        const meta = itemRefs.length ? describeSkuCode(itemRefs[0]) : '';
+        const meta = itemRefs.length ? describeSkuCode(itemRefs[0], item.customNote) : '';
         const metaLine = meta ? `<p class="cart-item__meta">${escapeHtml(meta)}</p>` : '';
         const refLine = itemRefs.length ? `<p class="cart-item__sku">${refLabel}: ${escapeHtml(itemRefs.join(', '))}</p>` : '';
         const price = itemRefs.length ? '' : `<p class="cart-item__price">${escapeHtml(item.price)}</p>`;
@@ -1127,10 +1383,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const cart = getCart();
         const lines = cart.map(item => {
           const data = PRODUCTS_DATA[item.id];
-          const itemRefs = getDisplayRefs(data, item.qty);
+          const itemRefs = getDisplayRefs(data, item.qty, item.refCode);
           const refLabel = itemRefs.length > 1 ? 'Refs' : 'Ref';
           const skuPart = itemRefs.length ? ` — ${refLabel}: ${itemRefs.join(', ')}` : '';
-          return `- ${item.name}${skuPart} (x${item.qty}) — ${formatPrice(parsePrice(item.price) * item.qty)}`;
+          const notePart = item.customNote ? ` — Personalización solicitada: "${item.customNote}"` : '';
+          return `- ${item.name}${skuPart}${notePart} (x${item.qty}) — ${formatPrice(parsePrice(item.price) * item.qty)}`;
         });
         const total = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.qty, 0);
 
@@ -1245,22 +1502,12 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('productPrice').textContent = product.price;
       document.getElementById('productDescription').textContent = product.description;
 
-      // -- Código de producto (SKU): solo si el producto tiene alguna unidad
-      // disponible ahora mismo; se muestra atenuado justo debajo de la
-      // descripción, no es algo que el comprador necesite pero ayuda a
-      // identificar la pieza exacta. Si hay más de una unidad en stock, se
-      // muestra el código de la unidad con el número más bajo (la primera
-      // en venderse). --
+      // -- Código de producto (SKU): discreto, bajo la descripción. Con
+      // stock gestionado muestra el código de la unidad más baja
+      // disponible; en personalizables, el código dinámico "PER-..." solo
+      // aparece una vez elegidas todas las opciones (ver updateSkuDisplay,
+      // junto a los selectores de tamaño/color, más abajo). --
       const productSku = document.getElementById('productSku');
-      if (productSku) {
-        const nextSku = getDisplayRefs(product, 1)[0] || null;
-        if (nextSku) {
-          productSku.textContent = `Ref: ${nextSku}`;
-          productSku.hidden = false;
-        } else {
-          productSku.hidden = true;
-        }
-      }
 
       // -- Galería de imágenes: una imagen grande + el resto de fotos en
       // miniatura debajo (en vez de flechas encima, para no ocupar espacio
@@ -1337,59 +1584,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
       showProductImage(0);
 
-      // -- Selector de color (genérico y decorativo por ahora: no cambia
-      // ni la imagen ni el precio, solo marca la muestra elegida). Solo
-      // tiene sentido en productos personalizables: el resto ya están
-      // hechos en un acabado concreto, así que el bloque se oculta. --
+      // -- Selectores de tamaño y color/estampado --------------------
+      // Dos casos con la misma interfaz (una fila de "pastillas" por eje,
+      // una para tamaño y otra para color/estampado, cada una solo visible
+      // si la familia del producto tiene ese eje):
+      //  - Producto YA HECHO (no personalizable): cada pastilla es un
+      //    "hermano" real ya fotografiado (clic → va a su ficha) o, si esa
+      //    combinación no existe todavía como producto real, una pastilla
+      //    deshabilitada que abre el aviso de "Agotado".
+      //  - Producto PERSONALIZABLE: cada pastilla es una opción a ELEGIR
+      //    (no hay "hermano" al que navegar, es el mismo producto bajo
+      //    pedido) — hasta que se elijan TODOS los ejes de su familia no
+      //    se puede añadir al carrito ni hay código de referencia que
+      //    mostrar (pedido de Juan, 2026-09).
       const productColorsBlock = document.getElementById('productColorsBlock');
       const productColors = document.getElementById('productColors');
+      const productVariantsBlock = document.getElementById('productVariantsBlock');
+      const productVariants = document.getElementById('productVariants');
+      // Caja de texto para pedir un color/estampado a medida (pedido de
+      // Juan 2026-09): solo se muestra cuando el cliente elige la pastilla
+      // "Otro" del selector de color, en productos personalizables.
+      const productCustomColor = document.getElementById('productCustomColor');
+      const productCustomColorInput = document.getElementById('productCustomColorInput');
 
-      if (product.personalizable) {
-        productColorsBlock.classList.remove('is-hidden');
-        productColors.innerHTML = PRODUCT_COLOR_OPTIONS.map((color, i) => `<button type="button" class="product-detail__color${i === 0 ? ' is-active' : ''}" style="background-color: ${color.value};" aria-label="${escapeHtml(color.name)}" title="${escapeHtml(color.name)}"></button>`).join('');
-        productColors.querySelectorAll('.product-detail__color').forEach(swatch => {
-          swatch.addEventListener('click', () => {
-            productColors.querySelectorAll('.product-detail__color').forEach(s => s.classList.remove('is-active'));
-            swatch.classList.add('is-active');
-          });
-        });
-      } else {
-        productColorsBlock.classList.add('is-hidden');
+      function updateCustomColorUI() {
+        if (!productCustomColor) return;
+        const isCustom = selection.color === 'CUSTOM';
+        productCustomColor.classList.toggle('is-hidden', !isCustom);
+        if (isCustom && productCustomColorInput) productCustomColorInput.focus();
       }
 
-      // -- Selector de variante (tamaño o color/estampado): solo aparece en
-      // productos "hechos" que pertenecen a un grupo con más de una opción
-      // real (ver VARIANT_GROUPS). Las opciones sin producto real detrás
-      // salen deshabilitadas y abren el aviso de "Agotado" al pulsarlas. --
-      const productVariantsBlock = document.getElementById('productVariantsBlock');
-      const productVariantsLabel = document.getElementById('productVariantsLabel');
-      const productVariants = document.getElementById('productVariants');
-      const variantGroup = product.variantGroup ? VARIANT_GROUPS[product.variantGroup] : null;
+      if (productCustomColorInput) {
+        productCustomColorInput.addEventListener('input', () => {
+          selection.customColorText = productCustomColorInput.value;
+          updateSkuDisplay();
+          updateAddToCartGating();
+        });
+      }
 
-      if (variantGroup && !product.personalizable) {
-        productVariantsBlock.classList.remove('is-hidden');
-        productVariantsLabel.textContent = VARIANT_AXIS_LABELS[variantGroup.axis] || 'Variante';
-        productVariants.innerHTML = variantGroup.options.map(option => {
-          const isActive = option.id === productId;
-          const isAvailable = !!option.id;
-          return `<button type="button" class="product-detail__variant${isActive ? ' is-active' : ''}${isAvailable ? '' : ' is-disabled'}" data-target-id="${option.id ? escapeHtml(option.id) : ''}">${escapeHtml(option.label)}</button>`;
+      const family = product.family ? PRODUCT_FAMILIES[product.family] : null;
+      const selection = {}; // solo se rellena en personalizables
+
+      function isSelectionComplete() {
+        if (!product.personalizable) return true;
+        if (!family) return true;
+        return family.axes.every(axis => {
+          if (axis === 'color' && selection.color === 'CUSTOM') {
+            return !!(selection.customColorText && selection.customColorText.trim());
+          }
+          return !!selection[axis];
+        });
+      }
+
+      // Código "PER-..." de un personalizable: PER + categoría de SKU de
+      // su tipo (siempre la misma, venga o no de un `category` de
+      // visualización) + tipo + color elegido [+ tamaño elegido, si su
+      // familia tiene ese eje] — sin nº de unidad, porque hasta que se
+      // fabrique la pieza no hay unidad física que numerar. Se sustituye a
+      // mano por el código real definitivo en cuanto se fabrica el pedido.
+      function computePersonalizableCode() {
+        if (!family) return null;
+        const skuCategory = TYPE_TO_SKU_CATEGORY[family.type] || '???';
+        const parts = ['PER', skuCategory, family.type];
+        if (family.axes.includes('color')) {
+          parts.push(selection.color === 'CUSTOM' ? 'PER' : (selection.color || ''));
+        }
+        if (family.axes.includes('size')) parts.push(selection.size || '');
+        return parts.join('-');
+      }
+
+      function updateSkuDisplay() {
+        if (!productSku) return;
+        const liveRefCode = product.personalizable && isSelectionComplete() ? computePersonalizableCode() : null;
+        const nextSku = getDisplayRefs(product, 1, liveRefCode)[0] || null;
+        if (nextSku) {
+          productSku.textContent = `Ref: ${nextSku}`;
+          productSku.hidden = false;
+        } else {
+          productSku.hidden = true;
+        }
+      }
+
+      function renderAxis(axisName, blockEl, containerEl) {
+        if (!family || !family.axes.includes(axisName)) {
+          blockEl.classList.add('is-hidden');
+          return;
+        }
+        const options = axisName === 'size' ? family.sizes : family.colors;
+        const isColorAxis = axisName === 'color';
+        const btnClass = isColorAxis ? 'product-detail__color' : 'product-detail__variant';
+        // Solo el eje de color, y solo en personalizables, admite pedir
+        // "algo distinto" que no esté en la lista (pedido de Juan 2026-09):
+        // una pastilla extra al final que abre una caja de texto libre en
+        // vez de fijar un color/estampado del catálogo.
+        const showCustomOption = product.personalizable && isColorAxis;
+
+        const optionsHtml = options.map(option => {
+          const swatchAttr = isColorAxis ? ` style="background-color: ${option.swatch};"` : '';
+          const labelText = isColorAxis ? '' : escapeHtml(option.label);
+
+          if (product.personalizable) {
+            const isActive = selection[axisName] === option.code;
+            return `<button type="button" class="${btnClass}${isActive ? ' is-active' : ''}"${swatchAttr} data-code="${escapeHtml(option.code)}" aria-label="${escapeHtml(option.label)}" title="${escapeHtml(option.label)}">${labelText}</button>`;
+          }
+
+          const key = familyKey(family, { ...product.variant, [axisName]: option.code });
+          const targetId = (family.matrix && family.matrix[key]) || null;
+          const isActive = option.code === product.variant[axisName];
+          const isAvailable = !!targetId;
+          return `<button type="button" class="${btnClass}${isActive ? ' is-active' : ''}${isAvailable ? '' : ' is-disabled'}"${swatchAttr} data-target-id="${targetId ? escapeHtml(targetId) : ''}" aria-label="${escapeHtml(option.label)}" title="${escapeHtml(option.label)}">${labelText}</button>`;
         }).join('');
 
-        productVariants.querySelectorAll('.product-detail__variant').forEach(btn => {
+        const customHtml = showCustomOption
+          ? `<button type="button" class="${btnClass} ${btnClass}--custom${selection.color === 'CUSTOM' ? ' is-active' : ''}" data-code="CUSTOM" aria-label="Otro: descríbelo tú" title="Otro: descríbelo tú">+</button>`
+          : '';
+
+        containerEl.innerHTML = optionsHtml + customHtml;
+
+        blockEl.classList.remove('is-hidden');
+
+        containerEl.querySelectorAll(`.${btnClass}`).forEach(btn => {
           btn.addEventListener('click', () => {
+            if (product.personalizable) {
+              selection[axisName] = btn.dataset.code;
+              renderAxis(axisName, blockEl, containerEl);
+              updateSkuDisplay();
+              updateAddToCartGating();
+              if (isColorAxis) updateCustomColorUI();
+              return;
+            }
             const targetId = btn.dataset.targetId;
             if (targetId) {
-              if (targetId !== productId) {
-                window.location.href = `producto.html?id=${encodeURIComponent(targetId)}`;
-              }
+              if (targetId !== productId) window.location.href = `producto.html?id=${encodeURIComponent(targetId)}`;
             } else {
-              openStockModal(variantGroup.baseName || product.name);
+              openStockModal(family.baseName || product.name);
             }
           });
         });
-      } else {
-        productVariantsBlock.classList.add('is-hidden');
       }
+
+      renderAxis('size', productVariantsBlock, productVariants);
+      renderAxis('color', productColorsBlock, productColors);
+      updateCustomColorUI();
+      updateSkuDisplay();
 
       // -- Aviso de "Agotado" (variante de tamaño/color sin producto real
       // detrás todavía): una modal pequeña con la X para cerrar, igual que
@@ -1435,15 +1772,43 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFavoritesBadge();
       });
 
-      // -- Añadir al carrito (o "Agotado", si no queda stock) --
+      // -- Añadir al carrito ------------------------------------------
+      // No personalizable: igual que siempre (botón "Agotado" fijo si no
+      // queda stock). Personalizable: el botón empieza deshabilitado con
+      // el texto "Elige todas las opciones" y solo se activa cuando
+      // `selection` cubre todos los ejes de su familia (pedido de Juan,
+      // 2026-09); el código "PER-..." final se calcula en el momento de
+      // pulsarlo, con la selección ya completa, y viaja con la línea del
+      // carrito (`refCode`) para que cada combinación pedida sea su
+      // propia línea (ver addToCart).
       const productAddCart = document.getElementById('productAddCart');
+      const addCartDefaultText = productAddCart.textContent;
+
+      function updateAddToCartGating() {
+        if (!product.personalizable) return;
+        const complete = isSelectionComplete();
+        productAddCart.disabled = !complete;
+        productAddCart.textContent = complete ? addCartDefaultText : 'Elige todas las opciones';
+      }
+
       if (isOutOfStock(product)) {
         productAddCart.textContent = 'Agotado';
         productAddCart.disabled = true;
         productAddCart.classList.add('is-out-of-stock');
       } else {
+        updateAddToCartGating();
+
         productAddCart.addEventListener('click', () => {
-          const result = addToCart({ id: productId, name: product.name, price: product.price, image: images[0] });
+          if (product.personalizable && !isSelectionComplete()) {
+            flashBlocked(productAddCart);
+            return;
+          }
+
+          const liveRefCode = product.personalizable ? computePersonalizableCode() : undefined;
+          const customNote = (product.personalizable && selection.color === 'CUSTOM' && selection.customColorText)
+            ? selection.customColorText.trim()
+            : undefined;
+          const result = addToCart({ id: productId, name: product.name, price: product.price, image: images[0], refCode: liveRefCode, customNote });
 
           if (!result.ok) {
             flashBlocked(productAddCart);
@@ -1454,7 +1819,7 @@ document.addEventListener('DOMContentLoaded', () => {
           productAddCart.textContent = 'Añadido ✓';
           productAddCart.classList.add('is-added');
           setTimeout(() => {
-            productAddCart.textContent = originalText;
+            productAddCart.textContent = product.personalizable ? addCartDefaultText : originalText;
             productAddCart.classList.remove('is-added');
           }, 1200);
         });

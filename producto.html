@@ -118,6 +118,13 @@
             <div class="product-detail__colors" id="productColorsBlock">
               <span class="product-detail__colors-label">Color</span>
               <div class="product-detail__color-options" id="productColors"></div>
+              <!-- Solo visible en personalizables, al elegir la pastilla "+"
+                   (Otro): caja de texto libre para pedir un color/estampado
+                   que no esté entre las opciones del catálogo. -->
+              <div class="product-detail__custom-color is-hidden" id="productCustomColor">
+                <label for="productCustomColorInput" class="product-detail__custom-color-label">Cuéntanos qué buscas</label>
+                <textarea id="productCustomColorInput" class="product-detail__custom-color-input" rows="2" placeholder="Ej.: un estampado de flores silvestres en tonos azules..."></textarea>
+              </div>
             </div>
 
             <!-- Selector de variante (tamaño o color/estampado): solo aparece en
